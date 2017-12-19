@@ -1,0 +1,111 @@
+DEBUG 2017-12-06 22:00:18,869: 	 Executing command: 'submit'
+DEBUG 2017-12-06 22:00:18,870: 	 Found CRAB cache file /uscms/home/zwang2/.crab3
+DEBUG 2017-12-06 22:00:18,894: 	 Checking credentials
+DEBUG 2017-12-06 22:00:18,894: 	 Found proxy file /tmp/x509up_u49846
+DEBUG 2017-12-06 22:00:18,894: 	 Getting proxy life time left
+DEBUG 2017-12-06 22:00:18,997: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u49846 -timeleft
+ output : 43187
+
+ error: 
+ retcode : 0
+DEBUG 2017-12-06 22:00:19,100: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u49846 -actimeleft
+ output : 43185
+
+ error: 
+ retcode : 0
+DEBUG 2017-12-06 22:00:19,101: 	 Proxy valid for 11:59:47 hours
+INFO 2017-12-06 22:00:19,101: 	 Will use CRAB configuration file GravitonToQuark_8000.py
+DEBUG 2017-12-06 22:00:19,101: 	 Loading CRAB configuration file.
+DEBUG 2017-12-06 22:00:19,126: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2017-12-06 22:00:19,127: 	 Working area '/uscms_data/d3/zwang2/WorkingArea4/CMSSW_8_0_25/src/CMSDIJET/DijetRootTreeMaker/crab_job/output/crab_GravitonToQuark_8000' already exists 
+Please change the requestName in the config file
+ERROR 2017-12-06 22:00:19,127: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 302, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/lib/python2.7/site-packages/CRABClient/ClientUtilities.py", line 396, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/uscms_data/d3/zwang2/WorkingArea4/CMSSW_8_0_25/src/CMSDIJET/DijetRootTreeMaker/crab_job/output/crab_GravitonToQuark_8000' already exists 
+Please change the requestName in the config file
+DEBUG 2017-12-09 16:47:01,873: 	 Executing command: 'submit'
+DEBUG 2017-12-09 16:47:01,874: 	 Found CRAB cache file /uscms/home/zwang2/.crab3
+DEBUG 2017-12-09 16:47:01,889: 	 Checking credentials
+DEBUG 2017-12-09 16:47:01,890: 	 Found proxy file /tmp/x509up_u49846
+DEBUG 2017-12-09 16:47:01,890: 	 Getting proxy life time left
+DEBUG 2017-12-09 16:47:01,992: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u49846 -timeleft
+ output : 39628
+
+ error: 
+ retcode : 0
+DEBUG 2017-12-09 16:47:02,096: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u49846 -actimeleft
+ output : 39627
+
+ error: 
+ retcode : 0
+DEBUG 2017-12-09 16:47:02,096: 	 Proxy valid for 11:00:28 hours
+INFO 2017-12-09 16:47:02,096: 	 Will use CRAB configuration file GravitonToQuark_8000.py
+DEBUG 2017-12-09 16:47:02,097: 	 Loading CRAB configuration file.
+DEBUG 2017-12-09 16:47:02,104: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2017-12-09 16:47:02,105: 	 Working area '/uscms_data/d3/zwang2/WorkingArea4/CMSSW_8_0_25/src/CMSDIJET/DijetRootTreeMaker/crab_job/output/crab_GravitonToQuark_8000' already exists 
+Please change the requestName in the config file
+ERROR 2017-12-09 16:47:02,105: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 302, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/lib/python2.7/site-packages/CRABClient/ClientUtilities.py", line 396, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/uscms_data/d3/zwang2/WorkingArea4/CMSSW_8_0_25/src/CMSDIJET/DijetRootTreeMaker/crab_job/output/crab_GravitonToQuark_8000' already exists 
+Please change the requestName in the config file
+DEBUG 2017-12-09 16:48:25,432: 	 Executing command: 'submit'
+DEBUG 2017-12-09 16:48:25,432: 	 Found CRAB cache file /uscms/home/zwang2/.crab3
+DEBUG 2017-12-09 16:48:25,440: 	 Checking credentials
+DEBUG 2017-12-09 16:48:25,440: 	 Found proxy file /tmp/x509up_u49846
+DEBUG 2017-12-09 16:48:25,440: 	 Getting proxy life time left
+DEBUG 2017-12-09 16:48:25,543: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u49846 -timeleft
+ output : 39544
+
+ error: 
+ retcode : 0
+DEBUG 2017-12-09 16:48:25,646: 	 Executing : 
+ command : voms-proxy-info -file /tmp/x509up_u49846 -actimeleft
+ output : 39544
+
+ error: 
+ retcode : 0
+DEBUG 2017-12-09 16:48:25,646: 	 Proxy valid for 10:59:04 hours
+INFO 2017-12-09 16:48:25,646: 	 Will use CRAB configuration file GravitonToQuark_8000_2.py
+DEBUG 2017-12-09 16:48:25,647: 	 Loading CRAB configuration file.
+DEBUG 2017-12-09 16:48:25,654: 	 Will use CRAB Analysis plugin (i.e. will run an analysis job type).
+ERROR 2017-12-09 16:48:25,654: 	 Working area '/uscms_data/d3/zwang2/WorkingArea4/CMSSW_8_0_25/src/CMSDIJET/DijetRootTreeMaker/crab_job/output/crab_GravitonToQuark_8000_2' already exists 
+Please change the requestName in the config file
+ERROR 2017-12-09 16:48:25,654: 	 Caught exception
+Traceback (most recent call last):
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/bin/crab", line 160, in <module>
+    client()
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/bin/crab", line 146, in __call__
+    self.cmd = sub_cmd(self.logger, args[1:])
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/lib/python2.7/site-packages/CRABClient/Commands/submit.py", line 34, in __init__
+    SubCommand.__init__(self, logger, cmdargs, disable_interspersed_args=True)
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/lib/python2.7/site-packages/CRABClient/Commands/SubCommand.py", line 302, in __init__
+    getattr(self.configuration.General, 'requestName', None))
+  File "/cvmfs/cms.cern.ch/crab3/slc6_amd64_gcc493/cms/crabclient/3.3.1707.patch1/lib/python2.7/site-packages/CRABClient/ClientUtilities.py", line 396, in createWorkArea
+    raise ConfigException("Working area '%s' already exists \nPlease change the requestName in the config file" % fullpath)
+ConfigException: Working area '/uscms_data/d3/zwang2/WorkingArea4/CMSSW_8_0_25/src/CMSDIJET/DijetRootTreeMaker/crab_job/output/crab_GravitonToQuark_8000_2' already exists 
+Please change the requestName in the config file
