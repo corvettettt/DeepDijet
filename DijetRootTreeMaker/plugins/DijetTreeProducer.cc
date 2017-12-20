@@ -1040,7 +1040,59 @@ void DijetTreeProducer::analyze(edm::Event const& iEvent, edm::EventSetup const&
   //bool cut_vtx = (recVtxs->size() > 0);
   
   //if (cut_vtx) {
+  //DF
 
+  std::vector<double> jecFactors;
+  std::vector<unsigned> sortedJetIdx;
+  if(redoJECs_)
+    { 
+      // sort DFAK4 jets by increasing pT
+      std::multimap<double, unsigned> sortedJets;
+      //for(edm::View<pat::Jet>::const_iterator ijet = jetsAK4->begin();ijet != jetsAK4->end(); ++ijet)
+      for(pat::JetCollection::const_iterator ijet = jets->begin();ijet != jets->end(); ++ijet)
+        { 
+          double correction = 1.;
+          JetCorrectorAK4_DATA->setJetEta(ijet->eta());
+          JetCorrectorAK4_DATA->setJetPt(ijet->correctedJet(0).pt());
+          JetCorrectorAK4_DATA->setJetA(ijet->jetArea());
+          JetCorrectorAK4_DATA->setRho(rho_);
+          JetCorrectorAK4_MC->setJetEta(ijet->eta());
+          JetCorrectorAK4_MC->setJetPt(ijet->correctedJet(0).pt());
+          JetCorrectorAK4_MC->setJetA(ijet->jetArea());
+          JetCorrectorAK4_MC->setRho(rho_);
+          if (iEvent.isRealData())
+            correction = JetCorrectorAK4_DATA->getCorrection();
+          else
+            correction = JetCorrectorAK4_MC->getCorrection();
+          
+          
+          jecFactors.push_back(correction);
+          sortedJets.insert(std::make_pair(ijet->correctedJet(0).pt()*correction, ijet - jets->begin()));
+        }
+      // get jet indices in decreasing pT order
+      for(std::multimap<double, unsigned>::const_reverse_iterator it = sortedJets.rbegin(); it != sortedJets.rend(); ++it)
+        sortedJetIdx.push_back(it->second);
+    }
+  else
+    {
+      for(pat::JetCollection::const_iterator ijet = jets->begin();ijet != jets->end(); ++ijet)
+        {
+          jecFactors.push_back(1./ijet->jecFactor(0));
+          sortedJetIdx.push_back(ijet - jets->begin());
+        }
+    }
+
+  for(std::vector<unsigned>::const_iterator i = sortedJetIdx.begin(); i != sortedJetIdx.end(); ++i)
+  //for(pat::JetCollection::const_iterator ijet = jets->begin();ijet != jets->end(); ++ijet)
+   {
+     pat::JetCollection::const_iterator ijet = (jets->begin() + *i);
+     deepFlavourJetTags_probudsg_->push_back(ijet->bDiscriminator("deepFlavourJetTags:probudsg"));
+     deepFlavourJetTag_probb_    ->push_back(ijet->bDiscriminator("deepFlavourJetTags:probb"));
+     deepFlavourJetTags_probc_   ->push_back(ijet->bDiscriminator("deepFlavourJetTags:probc"));
+     deepFlavourJetTags_probbb_  ->push_back(ijet->bDiscriminator("deepFlavourJetTags:probbb"));
+     deepFlavourJetTags_probcc_  ->push_back(ijet->bDiscriminator("deepFlavourJetTags:probcc"));
+
+   }
   // AK4
   std::vector<double> jecFactorsAK4;
   std::vector<unsigned> sortedAK4JetIdx;
@@ -1085,16 +1137,6 @@ void DijetTreeProducer::analyze(edm::Event const& iEvent, edm::EventSetup const&
   nJetsAK4_ = 0;
   float htAK4(0.0);
   vector<TLorentzVector> vP4AK4;
-
-  for(pat::JetCollection::const_iterator ijet = jets->begin();ijet != jets->end(); ++ijet)
-   { 
-     deepFlavourJetTags_probudsg_->push_back(ijet->bDiscriminator("deepFlavourJetTags:probudsg"));
-     deepFlavourJetTag_probb_    ->push_back(ijet->bDiscriminator("deepFlavourJetTags:probb"));
-     deepFlavourJetTags_probc_   ->push_back(ijet->bDiscriminator("deepFlavourJetTags:probc")); 
-     deepFlavourJetTags_probbb_  ->push_back(ijet->bDiscriminator("deepFlavourJetTags:probbb"));
-     deepFlavourJetTags_probcc_  ->push_back(ijet->bDiscriminator("deepFlavourJetTags:probcc"));
-        
-   }
 
   for(std::vector<unsigned>::const_iterator i = sortedAK4JetIdx.begin(); i != sortedAK4JetIdx.end(); ++i) {
 
